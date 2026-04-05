@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Premium Luxury Clinic Light Theme */
+  --bg-main: #FAFAFC;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-panel: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(212, 175, 55, 0.25); /* Metallic Gold Border */
+  
+  --text-primary: #111827; /* Rich Dark Gray */
+  --text-secondary: #4B5563;
+  
+  --accent-blue: #1E3A8A; /* Clinical Deep Navy */
+  --accent-purple: #B48608; /* Luxury Solid Gold */
+  --accent-teal: #0D9488;
+  --accent-red: #EF4444;
+
+  --shadow-glow: 0 10px 25px -5px rgba(180, 134, 8, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-main);
+  background-image: 
+    linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(250,250,252,1) 100%),
+    radial-gradient(circle at top left, rgba(180, 134, 8, 0.1), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(30, 58, 138, 0.08), transparent 40%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-top: 4px solid var(--accent-purple);
+  border-radius: 16px;
+  box-shadow: var(--shadow-glow);
+}
+
+.glass-pill {
+  background: var(--bg-panel);
+  border: 1px solid var(--glass-border);
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+}
+
+/* Base App Layout */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Utility layout */
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.grid-cols-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+
+/* Voice Action Button Animation */
+.voice-button {
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 14px 0 rgba(139, 92, 246, 0.39);
+}
+
+.voice-button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
+}
+
+.voice-button.listening {
+  animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.6); }
+  70% { box-shadow: 0 0 0 20px rgba(139, 92, 246, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0); }
+}
+
+/* Text styles */
+h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; }
+p { color: var(--text-secondary); line-height: 1.5; }

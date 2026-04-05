@@ -1,0 +1,8 @@
+venv/
+__pycache__/
+*.pyc
+.env
+node_modules
+export_28thmar11pm.md
+export_29thmar11pm.md
+implementation_plan.md
